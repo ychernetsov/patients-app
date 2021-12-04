@@ -21,6 +21,7 @@ import { MatDividerModule } from "@angular/material/divider";
 import { MatSliderModule } from "@angular/material/slider";
 import { MatDatepickerModule } from "@angular/material/datepicker";
 import { MatNativeDateModule } from "@angular/material/core";
+import { MatTableModule } from '@angular/material/table';
 
 import {
   FontAwesomeModule,
@@ -50,6 +51,7 @@ import { faMediumM, faGithub } from "@fortawesome/free-brands-svg-icons";
 import { BigInputComponent } from "./components/big-input/big-input/big-input.component";
 import { BigInputActionComponent } from "./components/big-input/big-input-action/big-input-action.component";
 import { RtlSupportDirective } from "./directives/rtl-support/rtl-support.directive";
+import { DataTableComponent } from './components/data-table/data-table.component';
 
 @NgModule({
   imports: [
@@ -61,6 +63,7 @@ import { RtlSupportDirective } from "./directives/rtl-support/rtl-support.direct
     MatButtonModule,
     MatSelectModule,
     MatTabsModule,
+    MatTableModule,
     MatInputModule,
     MatProgressSpinnerModule,
     MatChipsModule,
@@ -79,7 +82,8 @@ import { RtlSupportDirective } from "./directives/rtl-support/rtl-support.direct
   declarations: [
     BigInputComponent,
     BigInputActionComponent,
-    RtlSupportDirective
+    RtlSupportDirective,
+    DataTableComponent
   ],
   exports: [
     CommonModule,
@@ -99,6 +103,7 @@ import { RtlSupportDirective } from "./directives/rtl-support/rtl-support.direct
     MatListModule,
     MatSelectModule,
     MatIconModule,
+    MatTableModule,
     MatTooltipModule,
     MatSnackBarModule,
     MatSlideToggleModule,
@@ -111,7 +116,8 @@ import { RtlSupportDirective } from "./directives/rtl-support/rtl-support.direct
 
     BigInputComponent,
     BigInputActionComponent,
-    RtlSupportDirective
+    RtlSupportDirective,
+    DataTableComponent
   ]
 })
 export class SharedModule {

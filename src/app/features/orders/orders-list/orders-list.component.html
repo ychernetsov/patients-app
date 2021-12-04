@@ -1,3 +1,6 @@
-<div>
-    {{ orders | json}}
-</div>
+<st-data-table
+    [config]="order_mapper"
+    [dataset]="orders">
+</st-data-table>
+
+

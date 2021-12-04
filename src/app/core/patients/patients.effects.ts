@@ -1,21 +1,21 @@
 import { Injectable } from '@angular/core';
 import { ofType, createEffect, Actions } from '@ngrx/effects';
-import { Order } from 'app/shared/models/order.model';
+import { Patient } from 'app/shared/models/patient.model';
 import { map, mergeMap } from 'rxjs/operators';
 import { FetchDataService } from '../fetch-data/fetch-data.service';
 
-import { fetchOrders, fetchOrdersSuccess } from './orders.actions';
+import { fetchPatients, fetchPatientsSuccess } from './patients.actions';
 
 
 @Injectable()
-export class OrdersEffects {
-  fetchOrders = createEffect(
+export class PatientsEffects {
+  fetchPatients = createEffect(
     () =>
       this.actions$.pipe(
-        ofType(fetchOrders),
+        ofType(fetchPatients),
         mergeMap(() =>
-          this.fetchDataService.getOrders().pipe(
-              map((orders: Order[]) => fetchOrdersSuccess({ payload: orders }))
+          this.fetchDataService.getPatients().pipe(
+              map((patients: Patient[]) => fetchPatientsSuccess({ payload: patients }))
           )
         )
       ),

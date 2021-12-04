@@ -27,6 +27,7 @@ import { MatSelectModule } from "@angular/material/select";
 import { MatTooltipModule } from "@angular/material/tooltip";
 import { FormsModule } from "@angular/forms";
 import { MatSnackBarModule } from "@angular/material/snack-bar";
+import { MatTableModule } from '@angular/material/table';
 
 import { environment } from "../../environments/environment";
 
@@ -74,6 +75,7 @@ import {
   faYoutube
 } from "@fortawesome/free-brands-svg-icons";
 import { OrdersEffects } from "./orders/orders.effects";
+import { PatientsEffects } from "./patients/patients.effects";
 
 export {
   TitleService,
@@ -116,6 +118,7 @@ export function httpLoaderFactory(http: HttpClient) {
     MatMenuModule,
     MatIconModule,
     MatSelectModule,
+    MatTableModule,
     MatTooltipModule,
     MatSnackBarModule,
     MatButtonModule,
@@ -123,7 +126,7 @@ export function httpLoaderFactory(http: HttpClient) {
     // ngrx
     StoreModule.forRoot(reducers, { metaReducers }),
     StoreRouterConnectingModule.forRoot(),
-    EffectsModule.forRoot([AuthEffects, SettingsEffects, OrdersEffects]),
+    EffectsModule.forRoot([AuthEffects, SettingsEffects, OrdersEffects, PatientsEffects]),
     environment.production
       ? []
       : StoreDevtoolsModule.instrument({

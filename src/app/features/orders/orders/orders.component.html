@@ -5,7 +5,7 @@
       <a mat-raised-button (click)="getOrders()" class="actions-main" color="primary">
         {{ 'stms.orders.get-orders' | translate }}
       </a>
-      <st-orders-list [orders]="(orders$ | async)"></st-orders-list>
+      <st-orders-list *ngIf="(orders$ | async).length" [orders]="(orders$ | async)"></st-orders-list>
     </div>
   </div>
 </div>

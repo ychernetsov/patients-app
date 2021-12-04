@@ -1,0 +1,27 @@
+:host {
+    // transform: translateX(5%);
+    // display: block;
+
+    table {
+        width: 100%;
+    }
+
+    td.mat-cell, th.mat-header-cell {
+        padding: 5px;
+        text-align: center;
+        border: 1px solid #eee;
+    }
+    
+    td div{
+        white-space: pre-line;
+        font-family: monospace;
+        font-size: .9em;
+        text-align: left;
+        padding: 5px;
+    }
+    
+    td.mat-cell:first-of-type, th.mat-header-cell:first-of-type {
+        padding-left: 0;
+    }
+}
+

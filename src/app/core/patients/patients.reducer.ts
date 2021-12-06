@@ -1,6 +1,7 @@
 import { PatientsState } from './patients.models'
-import { fetchPatientsSuccess } from './patients.actions';
+import { fetchPatientsSuccess, startFetchPatients, toggleFavPatient } from './patients.actions';
 import { createReducer, on, Action } from '@ngrx/store';
+import * as utils from '../utils/utils';
 
 export const initialState: PatientsState = {
   isLoading: false,
@@ -9,7 +10,9 @@ export const initialState: PatientsState = {
 
 const reducer = createReducer(
   initialState,
-  on(fetchPatientsSuccess, (state, { payload }) => ({ ...state, isLoading: false, patients: payload }))
+  on(startFetchPatients, (state) => ({ ...state, isLoading: true })),
+  on(fetchPatientsSuccess, (state, { payload }) => ({ ...state, isLoading: false, patients: payload })),
+  on(toggleFavPatient, (state, { payload }) => ({...state, patients: utils.updateItemInList(payload, state.patients) }))
 );
 
 export function patientsReducer(

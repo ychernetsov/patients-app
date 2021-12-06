@@ -5,6 +5,13 @@
       <a mat-raised-button (click)="getOrders()" class="actions-main" color="primary">
         {{ 'stms.orders.get-orders' | translate }}
       </a>
+      <mat-progress-spinner
+          *ngIf="isLoading$ | async"
+          [mode]="mode"
+          [value]="value"
+          [diameter]="30"
+          [strokeWidth]="3">
+      </mat-progress-spinner>
       <st-orders-list *ngIf="(orders$ | async).length" [orders]="(orders$ | async)"></st-orders-list>
     </div>
   </div>

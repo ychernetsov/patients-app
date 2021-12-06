@@ -1,10 +1,42 @@
 :host {
-    // transform: translateX(5%);
-    // display: block;
+    mat-form-field {
+        display: block;
+        width: 20%;
+    }
 
     table {
         width: 100%;
-    }
+        .mat-column-Favs {
+            width: 5%;
+            min-width: 50px;
+        }
+
+        .mat-form-field {
+            font-size: 14px;
+            width: 100%;
+          }
+          
+          td, th {
+            width: 25%;
+          }
+
+          [favorite-item] {
+                width: 24px;
+                height: 24px;
+                display: block;
+                transform: translate(50%, 30%);
+                cursor: pointer;
+                background-color: #006064;
+                mask-image: url(../../../../assets/favorite_border.svg);
+          }
+
+          [favorite-item]:hover, [favorite-item].active {
+                background-color: #006064;
+                mask-image: url(../../../../assets/favorite_fill.svg);
+        }
+      }
+      
+      
 
     td.mat-cell, th.mat-header-cell {
         padding: 5px;

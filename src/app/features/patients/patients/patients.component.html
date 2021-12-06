@@ -5,6 +5,13 @@
       <a mat-raised-button (click)="getPatients()" class="actions-main" color="primary">
         {{ 'stms.patients.get-patients' | translate }}
       </a>
+      <mat-progress-spinner
+          *ngIf="isLoading$ | async"
+          [mode]="mode"
+          [value]="value"
+          [diameter]="30"
+          [strokeWidth]="3">
+      </mat-progress-spinner>
       <st-patients-list *ngIf="(patients$ | async).length" [patients]="(patients$ | async)"></st-patients-list>
     </div>
   </div>

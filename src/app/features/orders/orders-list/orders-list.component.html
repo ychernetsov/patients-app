@@ -1,6 +1,9 @@
 <st-data-table
     [config]="order_mapper"
-    [dataset]="orders">
+    [dataset]="orders"
+    [filterParams]="filter"
+    (toggleFavoriteItem)="toggleFavorite($event)"
+>
 </st-data-table>
 
 

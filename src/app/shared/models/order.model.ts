@@ -35,6 +35,7 @@ export interface Order {
   insurance?: any;
   invoices?: any[];
   isArchived?: boolean;
+  isFavorite?: boolean;
   isFollowup?: boolean;
   isNewOrder?: boolean;
   isPreAuth?: boolean;

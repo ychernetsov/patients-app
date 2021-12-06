@@ -1,4 +1,6 @@
 <st-data-table
     [config]="patient_mapper"
-    [dataset]="patients">
+    [dataset]="patients"
+    [filterParams]="filter"
+    (toggleFavoriteItem)="toggleFavorite($event)">
 </st-data-table>

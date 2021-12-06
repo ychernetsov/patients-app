@@ -33,6 +33,7 @@ export interface Patient {
   inactiveSince?: any;
   isActive?: any;
   isEligible?: boolean;
+  isFavorite?: boolean;
   isLinked?: boolean;
   lastName?: string;
   medications?: any[];

@@ -22,6 +22,7 @@ import { MatSliderModule } from "@angular/material/slider";
 import { MatDatepickerModule } from "@angular/material/datepicker";
 import { MatNativeDateModule } from "@angular/material/core";
 import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 import {
   FontAwesomeModule,
@@ -76,6 +77,7 @@ import { DataTableComponent } from './components/data-table/data-table.component
     MatSnackBarModule,
     MatSlideToggleModule,
     MatDividerModule,
+    MatPaginatorModule,
 
     FontAwesomeModule
   ],
@@ -111,6 +113,7 @@ import { DataTableComponent } from './components/data-table/data-table.component
     MatSliderModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatPaginatorModule,
 
     FontAwesomeModule,
 

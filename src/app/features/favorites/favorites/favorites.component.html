@@ -1,10 +1,27 @@
 <div class="container">
     <div rtl>
-      <h1 class="main-heading">{{ 'stms.orders.title' | translate }}</h1>
       <div class="actions">
-        <a mat-raised-button class="actions-main" color="primary">
-          {{ 'stms.orders.get-orders' | translate }}
-        </a>
+        <div no-data-container *ngIf="(favOrders$ | async).length === 0 && (favPatients$ | async).length === 0">
+            <h1 no-data>No Favorites To Display</h1>
+        </div>
+        <div *ngIf="(favOrders$ | async).length" class="orders-container">
+        <h1>{{ 'stms.orders.title' | translate }}</h1>
+            <st-data-table
+                [config]="order_mapper"
+                [dataset]="favOrders$ | async"
+                [filterParams]="filterOrder"
+                (toggleFavoriteItem)="toggleFavorite($event, 'order')">
+            </st-data-table>
+        </div>
+        <div *ngIf="(favPatients$ | async).length" class="patients-container">
+            <h1>{{ 'stms.patients.title' | translate }}</h1>
+            <st-data-table
+                [config]="patient_mapper"
+                [dataset]="favPatients$ | async"
+                [filterParams]="filterPatient"
+                (toggleFavoriteItem)="toggleFavorite($event, 'patient')">
+            </st-data-table>
+        </div>
       </div>
     </div>
   </div>

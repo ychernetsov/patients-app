@@ -1,6 +1,9 @@
 import { Order } from 'app/shared/models/order.model';
-import {ChangeDetectionStrategy, Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { ProgressSpinnerMode } from '@angular/material/progress-spinner';
+import {ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { FilterParams } from 'app/shared/components/data-table/data-table.component';
+import { Store } from '@ngrx/store';
+import { AppState } from 'app/core/core.state';
+import { toggleFavOrder } from 'app/core/orders/orders.actions';
 
 
 
@@ -26,6 +29,20 @@ export class OrdersListComponent {
     'insurance': 'true',
     'orderName': 'true',
     'physician': 'name',
-    'creationDate': 'formattedDate'
+    'creationDate': 'formattedDate',
+    'Favs': 'true'
   };
+
+  filter: FilterParams = {
+    key: 'orderName',
+    name: 'Order Name',
+    type: 'orders'
+  };
+
+  constructor(private store: Store<AppState>) {
+  }
+
+  toggleFavorite(obj: {id: number, prop: string}) {
+    this.store.dispatch(toggleFavOrder({ payload: obj }))
+  }
 }

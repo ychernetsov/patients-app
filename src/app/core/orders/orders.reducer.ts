@@ -1,6 +1,8 @@
 import { OrdersState } from './orders.models'
-import { fetchOrdersSuccess } from './orders.actions';
+import { fetchOrdersSuccess, startFetchOrders, toggleFavOrder } from './orders.actions';
 import { createReducer, on, Action } from '@ngrx/store';
+import * as utils from '../utils/utils';
+import { Order } from 'app/shared/models/order.model';
 
 export const initialState: OrdersState = {
   isLoading: false,
@@ -9,7 +11,9 @@ export const initialState: OrdersState = {
 
 const reducer = createReducer(
   initialState,
-  on(fetchOrdersSuccess, (state, { payload }) => ({ ...state, isLoading: false, orders: payload }))
+  on(startFetchOrders, (state) => ({ ...state, isLoading: true })),
+  on(fetchOrdersSuccess, (state, { payload }) => ({ ...state, isLoading: false, orders: payload })),
+  on(toggleFavOrder, (state, { payload }) => ({...state, orders: utils.updateItemInList(payload, state.orders) }))
 );
 
 export function ordersReducer(
